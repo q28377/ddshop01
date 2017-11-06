@@ -25,4 +25,9 @@ public class ItemAction {
         return itemService.getById(itemId);
     }
 
+    @RequestMapping("/{page}")
+    public String page(@PathVariable("page") String page){
+        return page;
+    }
+
 }
