@@ -1,6 +1,9 @@
 package com.qjk.ddshop.web;
 
+import com.qjk.ddshop.common.dto.Page;
+import com.qjk.ddshop.common.dto.Result;
 import com.qjk.ddshop.pojo.po.TbItem;
+import com.qjk.ddshop.pojo.vo.TbItemCustom;
 import com.qjk.ddshop.service.ItemService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +35,7 @@ public class ItemAction {
         return itemService.getById(itemId);
     }
 
-    //查询所有商品
+/*    //查询所有商品
     @ResponseBody   //Json格式，返回给easyUI的表格
     @RequestMapping("/items")
     public List<TbItem> listItems(){
@@ -44,5 +47,19 @@ public class ItemAction {
             e.printStackTrace();
         }
         return  list;
+    }*/
+
+    @ResponseBody
+    @RequestMapping("/items")
+    public Result<TbItemCustom> listItemsByPage(Page page){
+        Result<TbItemCustom> list = null;
+        try {
+            list = itemService.listItemsByPage(page);
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            e.printStackTrace();
+        }
+        return list;
     }
+
 }

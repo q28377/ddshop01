@@ -1,7 +1,11 @@
 package com.qjk.ddshop.service.impl;
 
+import com.qjk.ddshop.common.dto.Page;
+import com.qjk.ddshop.common.dto.Result;
+import com.qjk.ddshop.dao.TbItemCustomMapper;
 import com.qjk.ddshop.dao.TbItemMapper;
 import com.qjk.ddshop.pojo.po.TbItem;
+import com.qjk.ddshop.pojo.vo.TbItemCustom;
 import com.qjk.ddshop.service.ItemService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +22,8 @@ public class ItemServiceImpl implements ItemService{
 
     @Autowired
     private TbItemMapper itemDao;
+    @Autowired
+    private TbItemCustomMapper itemCustomDao;
 
     @Override
     public TbItem getById(Long itemId) {
@@ -25,7 +31,7 @@ public class ItemServiceImpl implements ItemService{
         return tbItem;
     }
 
-    @Override
+    /*@Override
     public List<TbItem> listItems(){
         List<TbItem> list = null;
         try {
@@ -35,6 +41,25 @@ public class ItemServiceImpl implements ItemService{
             e.printStackTrace();
         }
         return list;
+    }*/
+
+    @Override
+    public Result<TbItemCustom> listItemsByPage(Page page) {
+        Result<TbItemCustom> result = null;
+        try {
+            //1.创建一个响应参数实体类
+            result = new Result<TbItemCustom>();
+            //2.对total进行设值(符合条件的总记录数)
+            int total = itemCustomDao.countItems();
+            result.setTotal(total);
+            //3 对rows进行设值(指定页码显示记录集合)
+            List<TbItemCustom> list = itemCustomDao.listItemsByPage(page);
+            result.setRows(list);
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            e.printStackTrace();
+        }
+        return result;
     }
 
 

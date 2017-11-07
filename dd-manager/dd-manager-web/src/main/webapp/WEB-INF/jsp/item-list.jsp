@@ -24,6 +24,9 @@
             {field: 'ck', checkbox: true},
             {field: 'id', title: '商品编号', width: 100},
             {field: 'title', title: '商品名称', width: 100},
+            {field: 'sellPoint', title: '卖点', width: 100},
+            //自定义的属性
+            {field: 'catName', title: '分类名称', width: 100},
             {field: 'price', title: '价格', width: 100, align: 'right'}
         ]]
     });
