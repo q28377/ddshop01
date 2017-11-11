@@ -5,6 +5,7 @@ import com.qjk.ddshop.common.dto.Result;
 import com.qjk.ddshop.dao.TbItemCustomMapper;
 import com.qjk.ddshop.dao.TbItemMapper;
 import com.qjk.ddshop.pojo.po.TbItem;
+import com.qjk.ddshop.pojo.po.TbItemExample;
 import com.qjk.ddshop.pojo.vo.TbItemCustom;
 import com.qjk.ddshop.service.ItemService;
 import org.slf4j.Logger;
@@ -62,5 +63,24 @@ public class ItemServiceImpl implements ItemService{
         return result;
     }
 
+    @Override
+    public int updateBatch(List<Long> ids,int status) {
+        int i=0;
+        try {
+            //准备商品对象，这个对象包含了状态为3的字段
+            TbItem t = new TbItem();
+            t.setStatus((byte) status);
+            //创建更新模板 update tb_item set status=? where id in (?,?,?)
+            TbItemExample example = new TbItemExample();
+            TbItemExample.Criteria criteria = example.createCriteria();
+            criteria.andIdIn(ids);
+            //执行更新
+            i = itemDao.updateByExampleSelective(t,example);
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            e.printStackTrace();
+        }
+        return i;
+    }
 
 }
