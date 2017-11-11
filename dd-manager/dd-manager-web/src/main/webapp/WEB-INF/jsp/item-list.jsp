@@ -117,6 +117,8 @@
 
     //初始化数据表格
     $('#dg').datagrid({
+        //允许多列排序
+        multiSort: true,
         //将工具栏添加到数据表格中
         toolbar: toolbar,
 

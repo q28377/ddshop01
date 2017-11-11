@@ -27,8 +27,11 @@
         ON i.cid = c.id
         where i.status != 3
         <choose>
-          <when test="order != null and order.sort != null and order.order != null">
-            ORDER BY CONVERT(i.${order.sort} USING gbk) ${order.order}
+          <when test="order != null and order.sort != null and order.order != null and order.orderParams != null">/*Order.java提供了getOrderParams*/
+            /*ORDER BY CONVERT(i.${order.sort} USING gbk) ${order.order}*/
+              <foreach collection="order.orderParams" item="item" open="order by" close="" separator=",">
+                  i.${item}
+              </foreach>
           </when>
           <otherwise>
             ORDER BY i.id DESC
