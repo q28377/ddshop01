@@ -169,9 +169,13 @@
                         break;
                 }
             }},
-            {field: 'price', title: '价格', width: 100, align: 'right'},
-            {field: 'created', title: '创建时间', width: 100},
-            {field: 'updated', title: '修改时间', width: 100}
+            //{field: 'price', title: '价格', width: 100, align: 'right'},
+            {field: 'priceView', title: '价格', width: 100, align: 'right'},
+            {field: 'created', title: '创建时间', width: 100,formatter:function (value,row,index) {
+                return moment(value).format('LL');
+            }},
+            //{field: 'updated', title: '修改时间', width: 100}
+            {field: 'updatedTime', title: '修改时间', width: 100}
 
         ]]
     });

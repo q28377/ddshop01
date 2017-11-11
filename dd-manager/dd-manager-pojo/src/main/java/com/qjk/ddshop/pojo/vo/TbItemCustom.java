@@ -7,6 +7,10 @@ public class TbItemCustom extends TbItem{
     private String catName;
     private String statusName;
 
+    private String updatedTime;
+    private String priceView;
+
+
     public String getCatName() {
         return catName;
     }
@@ -21,5 +25,21 @@ public class TbItemCustom extends TbItem{
 
     public void setStatusName(String statusName) {
         this.statusName = statusName;
+    }
+
+    public String getUpdatedTime() {
+        return updatedTime;
+    }
+
+    public void setUpdatedTime(String updatedTime) {
+        this.updatedTime = updatedTime;
+    }
+
+    public String getPriceView() {
+        return priceView;
+    }
+
+    public void setPriceView(String priceView) {
+        this.priceView = priceView;
     }
 }

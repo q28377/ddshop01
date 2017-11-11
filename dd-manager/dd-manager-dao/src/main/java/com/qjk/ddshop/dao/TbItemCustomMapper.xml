@@ -3,15 +3,15 @@
 <mapper namespace="com.qjk.ddshop.dao.TbItemCustomMapper" >
 
     <sql id="Base_Column_List" >
-        i.id, i.title, i.sell_point as sellPoint, i.price,
-        i.num, i.barcode, i.image, i.cid, i.status, i.created, i.updated,
+        i.id, i.title, i.sell_point as sellPoint, FORMAT(i.price/100,2) AS priceView,
+        i.num, i.barcode, i.image, i.cid, i.status, i.created, DATE_FORMAT(i.updated,'%Y-%m-%d') AS updatedTime,
         c.name as catName,
         CASE i.status
             WHEN 1 THEN "正常"
             WHEN 2 THEN "下架"
             WHEN 3 THEN "删除"
             ELSE "未知" END AS statusName
-    </sql>
+      </sql>
 
     <select id="countItems" resultType="_int">
         select count(1)
