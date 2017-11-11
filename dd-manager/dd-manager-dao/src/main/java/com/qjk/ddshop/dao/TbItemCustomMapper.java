@@ -1,7 +1,9 @@
 package com.qjk.ddshop.dao;
 
+import com.qjk.ddshop.common.dto.Order;
 import com.qjk.ddshop.common.dto.Page;
 import com.qjk.ddshop.pojo.vo.TbItemCustom;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -20,5 +22,5 @@ public interface TbItemCustomMapper {
      * @param page
      * @return
      */
-    List<TbItemCustom> listItemsByPage(Page page);
+    List<TbItemCustom> listItemsByPage(@Param("page") Page page,@Param("order") Order order);
 }

@@ -140,8 +140,9 @@
             //field title width列属性
             {field: 'ck', checkbox: true},
 
-            {field: 'id', title: '商品编号', width: 100},
-            {field: 'title', title: '商品名称', width: 100},
+            {field: 'id', title: '商品编号', width: 100, sortable: true},//排序上下箭头
+            {field: 'title', title: '商品名称', width: 100, sortable: true},
+
             {field: 'sellPoint', title: '卖点', width: 100},
             //自定义的属性
             {field: 'catName', title: '分类名称', width: 100},

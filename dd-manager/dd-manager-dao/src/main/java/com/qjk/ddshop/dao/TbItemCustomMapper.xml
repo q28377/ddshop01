@@ -19,15 +19,22 @@
         where status != 3
     </select>
 
-    <select id="listItemsByPage" parameterType="com.qjk.ddshop.common.dto.Page" resultType="com.qjk.ddshop.pojo.vo.TbItemCustom">
+    <select id="listItemsByPage"  resultType="com.qjk.ddshop.pojo.vo.TbItemCustom">
         SELECT
         <include refid="Base_Column_List" />
         FROM tb_item i
         LEFT JOIN tb_item_cat c
         ON i.cid = c.id
         where i.status != 3
-        ORDER BY i.id DESC
-        LIMIT #{offset},#{rows}
+        <choose>
+          <when test="order != null and order.sort != null and order.order != null">
+            ORDER BY CONVERT(i.${order.sort} USING gbk) ${order.order}
+          </when>
+          <otherwise>
+            ORDER BY i.id DESC
+          </otherwise>
+        </choose>
+        LIMIT #{page.offset},#{page.rows}
     </select>
 
 </mapper>
