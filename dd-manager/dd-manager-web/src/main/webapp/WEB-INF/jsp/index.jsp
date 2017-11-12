@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/common.css">
 </head>
 <body class="easyui-layout">
-<div data-options="region:'north'" style="height:70px;padding-left:10px;">
+<div data-options="region:'north'" style="height:70px;padding-left:10px;"  >
     <h2>天天小商城后台管理系统</h2>
 </div>
 <div data-options="region:'south'" style="padding:5px;background:#eee;">
@@ -39,8 +39,8 @@
         </div>
     </div>
 </div>
-<div data-options="region:'center'" style="background:#eee;">
-    <div id="tab" class="easyui-tabs" data-options="fit:true">
+<div data-options="region:'center'" style="background:#eee;" >
+    <div id="tab" class="easyui-tabs" data-options="fit:true" >
         <div title="欢迎页面" style="padding:20px;">千锋欢迎你</div>
     </div>
 </div>

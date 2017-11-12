@@ -3,6 +3,7 @@ package com.qjk.ddshop.dao;
 import com.qjk.ddshop.common.dto.Order;
 import com.qjk.ddshop.common.dto.Page;
 import com.qjk.ddshop.pojo.vo.TbItemCustom;
+import com.qjk.ddshop.pojo.vo.TbItemQuery;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public interface TbItemCustomMapper {
      * 查询商品表中所有记录的数量
      * @return
      */
-    int countItems();
+    int countItems(Map<String,Object> map);
 
     /**
      * 查询指定页码显示记录集合
