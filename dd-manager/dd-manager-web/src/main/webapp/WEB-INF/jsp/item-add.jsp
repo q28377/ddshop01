@@ -96,7 +96,6 @@
                 $.messager.alert('警告', '请选中最终的类别！', 'warning');
                 return false;
             }
-
         }
     });
 
