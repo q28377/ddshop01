@@ -18,5 +18,11 @@ public interface ItemService {
 
     int updateBatch(List<Long> ids,int status);
 
-
+    /**
+     * 新增商品
+     * @param tbItem  商品实体类
+     * @param content 商品描述
+     * @return  新增商品条数
+     */
+    int saveItem(TbItem tbItem, String content);
 }

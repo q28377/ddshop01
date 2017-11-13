@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="js/jquery-easyui-1.5/themes/bootstrap/easyui.css">
     <link rel="stylesheet" href="js/jquery-easyui-1.5/themes/icon.css">
     <link rel="stylesheet" href="css/common.css">
+
+    <!-- 百度富文本编辑器 -->
+    <!-- ueditor配置文件 -->
+    <script src="js/ueditor/ueditor.config.js"></script>
+    <!-- ueditor编辑器源码文件 -->
+    <script src="js/ueditor/ueditor.all.js"></script>
+
 </head>
 <body class="easyui-layout">
 <div data-options="region:'north'" style="height:70px;padding-left:10px;"  >

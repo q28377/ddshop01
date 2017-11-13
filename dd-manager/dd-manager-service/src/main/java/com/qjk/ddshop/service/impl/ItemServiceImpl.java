@@ -3,9 +3,12 @@ package com.qjk.ddshop.service.impl;
 import com.qjk.ddshop.common.dto.Order;
 import com.qjk.ddshop.common.dto.Page;
 import com.qjk.ddshop.common.dto.Result;
+import com.qjk.ddshop.common.util.IDUtils;
 import com.qjk.ddshop.dao.TbItemCustomMapper;
+import com.qjk.ddshop.dao.TbItemDescMapper;
 import com.qjk.ddshop.dao.TbItemMapper;
 import com.qjk.ddshop.pojo.po.TbItem;
+import com.qjk.ddshop.pojo.po.TbItemDesc;
 import com.qjk.ddshop.pojo.po.TbItemExample;
 import com.qjk.ddshop.pojo.vo.TbItemCustom;
 import com.qjk.ddshop.pojo.vo.TbItemQuery;
@@ -14,7 +17,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +34,9 @@ public class ItemServiceImpl implements ItemService{
     private TbItemMapper itemDao;
     @Autowired
     private TbItemCustomMapper itemCustomDao;
+
+    @Autowired
+    private TbItemDescMapper itemDescDao;
 
     @Override
     public TbItem getById(Long itemId) {
@@ -95,4 +103,36 @@ public class ItemServiceImpl implements ItemService{
         return i;
     }
 
+    //事务方法的注解。事务方法不是越多越好，查询方法不能是事务方法
+    @Transactional
+    @Override
+    public int saveItem(TbItem tbItem, String content) {
+        int i = 0;
+        try {
+            //这个方法需要处理两种表tb_item和tb_item_desc
+
+            //处理tb_item
+            //调用工具类来生成商品id
+            Long itemId = IDUtils.getItemId();
+            tbItem.setId(itemId);
+            tbItem.setStatus((byte)2);
+            tbItem.setCreated(new Date());
+            tbItem.setUpdated(new Date());
+            i = itemDao.insert(tbItem);
+            //处理tb_item_desc
+            TbItemDesc desc = new TbItemDesc();
+            desc.setItemId(itemId);
+            desc.setItemDesc(content);
+            desc.setUpdated(new Date());
+            desc.setUpdated(new Date());
+            i += itemDescDao.insert(desc);
+
+
+
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            e.printStackTrace();
+        }
+        return i;
+    }
 }
