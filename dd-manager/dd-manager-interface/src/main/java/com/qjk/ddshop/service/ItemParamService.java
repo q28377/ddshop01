@@ -2,6 +2,7 @@ package com.qjk.ddshop.service;
 
 import com.qjk.ddshop.common.dto.Page;
 import com.qjk.ddshop.common.dto.Result;
+import com.qjk.ddshop.pojo.po.TbItemParam;
 import com.qjk.ddshop.pojo.vo.TbItemParamCustom;
 
 public interface ItemParamService {

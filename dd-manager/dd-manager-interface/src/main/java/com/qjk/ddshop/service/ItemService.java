@@ -22,7 +22,8 @@ public interface ItemService {
      * 新增商品
      * @param tbItem  商品实体类
      * @param content 商品描述
+     * @param paramData JSON格式字符串，存商品规格数据
      * @return  新增商品条数
      */
-    int saveItem(TbItem tbItem, String content);
+    int saveItem(TbItem tbItem, String content,String paramData);
 }

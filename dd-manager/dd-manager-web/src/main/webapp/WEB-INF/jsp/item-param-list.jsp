@@ -9,6 +9,11 @@
 </div>
 <table id="dgParamList"></table>
 <script>
+    //新增分组
+    function addParam(){
+        ddshop.addTabs('新增商品规格模板','item-param-add');
+    }
+
     //初始化数据表格
     $('#dgParamList').datagrid({
         title: '商品规格模板列表',
@@ -24,8 +29,19 @@
             {field:'id',title:'ID', sortable: true},
             {field:'itemCatName',title:'商品类目'},
             {field:'paramData',title:'规格(只显示分组名称)', formatter:function(value,row,index){
-                console.log(value);
-                return value;
+                //console.log(value);
+                var obj = JSON.parse(value);//字符串转换JSON对象
+                var arr = [];
+                $.each(obj,function (i,e) {
+                    /*console.group();
+                    console.log(i);
+                    console.log(e);
+                    console.groupEnd();*/
+                   //i是索引，从0开始
+                   //e是遍历的对象
+                   arr.push(e.group);
+                });
+                return arr;
             }},
             {field:'createdView',title:'创建日期', formatter:function(value,row,index){
                 return moment(value).format('YYYY年MM月DD日,hh:mm:ss');

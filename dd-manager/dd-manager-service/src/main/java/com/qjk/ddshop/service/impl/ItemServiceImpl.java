@@ -7,9 +7,11 @@ import com.qjk.ddshop.common.util.IDUtils;
 import com.qjk.ddshop.dao.TbItemCustomMapper;
 import com.qjk.ddshop.dao.TbItemDescMapper;
 import com.qjk.ddshop.dao.TbItemMapper;
+import com.qjk.ddshop.dao.TbItemParamItemMapper;
 import com.qjk.ddshop.pojo.po.TbItem;
 import com.qjk.ddshop.pojo.po.TbItemDesc;
 import com.qjk.ddshop.pojo.po.TbItemExample;
+import com.qjk.ddshop.pojo.po.TbItemParamItem;
 import com.qjk.ddshop.pojo.vo.TbItemCustom;
 import com.qjk.ddshop.pojo.vo.TbItemQuery;
 import com.qjk.ddshop.service.ItemService;
@@ -34,9 +36,10 @@ public class ItemServiceImpl implements ItemService{
     private TbItemMapper itemDao;
     @Autowired
     private TbItemCustomMapper itemCustomDao;
-
     @Autowired
     private TbItemDescMapper itemDescDao;
+    @Autowired
+    private TbItemParamItemMapper itemParamItemDao;
 
     @Override
     public TbItem getById(Long itemId) {
@@ -103,16 +106,16 @@ public class ItemServiceImpl implements ItemService{
         return i;
     }
 
-    //事务方法的注解。事务方法不是越多越好，查询方法不能是事务方法
+    //加上注解@Transactional之后，这个方法就变成了事务方法
+    //并不是事务方法越多越好，查询方法不需要添加为事务方法
     @Transactional
     @Override
-    public int saveItem(TbItem tbItem, String content) {
+    public int saveItem(TbItem tbItem, String content,String paramData) {
         int i = 0;
         try {
-            //这个方法需要处理两种表tb_item和tb_item_desc
-
+            //这个方法中需要处理三张表格tb_item，tb_item_desc，tb_item_param_item
+            //调用工具类生成商品的ID
             //处理tb_item
-            //调用工具类来生成商品id
             Long itemId = IDUtils.getItemId();
             tbItem.setId(itemId);
             tbItem.setStatus((byte)2);
@@ -123,14 +126,19 @@ public class ItemServiceImpl implements ItemService{
             TbItemDesc desc = new TbItemDesc();
             desc.setItemId(itemId);
             desc.setItemDesc(content);
-            desc.setUpdated(new Date());
+            desc.setCreated(new Date());
             desc.setUpdated(new Date());
             i += itemDescDao.insert(desc);
 
-
-
+            //处理tb_item_param_item
+            TbItemParamItem tbItemParamItem = new TbItemParamItem();
+            tbItemParamItem.setItemId(itemId);
+            tbItemParamItem.setParamData(paramData);
+            tbItemParamItem.setCreated(new Date());
+            tbItemParamItem.setUpdated(new Date());
+            i += itemParamItemDao.insert(tbItemParamItem);
         }catch (Exception e){
-            logger.error(e.getMessage(),e);
+            logger.error(e.getMessage(), e);
             e.printStackTrace();
         }
         return i;
