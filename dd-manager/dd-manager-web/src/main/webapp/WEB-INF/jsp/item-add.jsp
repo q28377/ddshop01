@@ -81,8 +81,10 @@
     //实例化富文本编辑器
     //todo 标记
     var ue = UE.getEditor('container',{
-        /*initialFrameWidth: '100%',
-        initialFrameHeight: '400'*/
+        initialFrameWidth: '100%',
+        initialFrameHeight: '300',
+        serverUrl:'file/upload'
+
     });
     //提交表单
     function submitForm() {

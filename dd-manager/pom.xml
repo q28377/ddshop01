@@ -18,6 +18,7 @@
         <module>dd-manager-service</module>
         <module>dd-manager-web</module>
         <module>dd-manager-dao</module>
+        <module>../dd-upload</module>
     </modules>
 
     <dependencies>

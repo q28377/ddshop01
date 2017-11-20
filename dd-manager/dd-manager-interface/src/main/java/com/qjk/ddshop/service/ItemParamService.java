@@ -12,4 +12,5 @@ public interface ItemParamService {
      * @return
      */
     Result<TbItemParamCustom> listItemParamsByPage(Page page);
+    TbItemParam getItemParamByCid(Long cid);
 }
