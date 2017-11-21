@@ -12,6 +12,7 @@
     <modules>
         <module>../dd-common</module>
         <module>../dd-manager</module>
+        <module>../dd-portal-web</module>
     </modules>
 
     <!--相关jar的版本号属性-->
