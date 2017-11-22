@@ -14,6 +14,7 @@
         <module name="dd-manager-service" />
         <module name="dd-manager-web" />
         <module name="dd-portal-web" />
+        <module name="dd-search-web" />
         <module name="dd-upload" />
       </profile>
     </annotationProcessing>
@@ -28,6 +29,7 @@
       <module name="dd-manager-web" target="1.7" />
       <module name="dd-parent" target="1.7" />
       <module name="dd-portal-web" target="1.7" />
+      <module name="dd-search-web" target="1.7" />
       <module name="dd-upload" target="1.7" />
     </bytecodeTargetLevel>
   </component>
