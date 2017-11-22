@@ -76,10 +76,10 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <!--中文分词器-->
-        <!--<dependency>
+        <dependency>
             <groupId>com.ik</groupId>
             <artifactId>IKAnalyzer</artifactId>
             <version>2012FF_u1</version>
-        </dependency>-->
+        </dependency>
     </dependencies>
 </project>

@@ -37,5 +37,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:4.2.8.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:4.2.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.40" level="project" />
+    <orderEntry type="library" name="Maven: com.ik:IKAnalyzer:2012FF_u1" level="project" />
   </component>
 </module>
