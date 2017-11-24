@@ -134,13 +134,14 @@
             //后台处理成功之后的回调函数
             success:function (data) {
                 //console.log('success');
-                if(data > 0){
+                //if(data > 0){
+                var obj = JSON.parse(data);
+                if (obj.success) {
                     //关闭添加商品的标签
-                    ddshop.closeTabs('添加商品');
+                    ddshop.closeTabs('新增商品');
                     //提示、打开查询商品页面
-                    $.messager.alert('温馨提示','添加商品成功！');
-                    ddshop.addTabs('查询商品','item-list');
-
+                    $.messager.alert('温馨提示', '添加商品成功！');
+                    ddshop.addTabs('查询商品', 'item-list');
                 }
             }
         });

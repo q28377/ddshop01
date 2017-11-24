@@ -1,5 +1,6 @@
 package com.qjk.ddshop.service;
 
+import com.qjk.ddshop.common.dto.MessageResult;
 import com.qjk.ddshop.common.dto.Order;
 import com.qjk.ddshop.common.dto.Page;
 import com.qjk.ddshop.common.dto.Result;
@@ -25,5 +26,5 @@ public interface ItemService {
      * @param paramData JSON格式字符串，存商品规格数据
      * @return  新增商品条数
      */
-    int saveItem(TbItem tbItem, String content,String paramData);
+    Long saveItem(TbItem tbItem, String content, String paramData);
 }

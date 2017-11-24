@@ -15,6 +15,7 @@
         <module>../dd-portal-web</module>
         <module>../dd-lucene</module>
         <module>../dd-search-web</module>
+        <module>../dd-activemq</module>
     </modules>
 
     <!--相关jar的版本号属性-->
