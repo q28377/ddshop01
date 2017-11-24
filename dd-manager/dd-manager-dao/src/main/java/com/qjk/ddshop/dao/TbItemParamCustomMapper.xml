@@ -5,8 +5,8 @@
     <sql id="Base_Column_List">
         p.id, p.item_cat_id, p.created, p.updated, c.name as itemCatName
     </sql>
-    <sql id="Blob_Column_List">
-        p.param_data
+    <sql id="Blob_Column_List2">
+        p.param_data as paramData
     </sql>
 
     <select id="countItemParams" resultType="_int">
@@ -22,7 +22,7 @@
         </if>
         <include refid="Base_Column_List"/>
         ,
-        <include refid="Blob_Column_List"/>
+        <include refid="Blob_Column_List2"/>
         from tb_item_param p left join tb_item_cat c on p.item_cat_id=c.id
         limit #{page.offset},#{page.rows}
     </select>
