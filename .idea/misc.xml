@@ -5,7 +5,6 @@
     <file type="web" url="file://$PROJECT_DIR$/dd-manager/dd-manager-web" />
     <file type="web" url="file://$PROJECT_DIR$/dd-portal-web" />
     <file type="web" url="file://$PROJECT_DIR$/dd-search-web" />
-    <file type="web" url="file://$PROJECT_DIR$/dd-shop-item" />
     <file type="web" url="file://$PROJECT_DIR$/dd-sso-web" />
   </component>
   <component name="MavenProjectsManager">
