@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="dd-shop-item:war exploded">
+    <output-path>$PROJECT_DIR$/dd-shop-item/target/dd-shop-item</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="dd-item-web" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/dd-shop-item/target/dd-shop-item/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="dd-item-web/web/Web" />
+    </root>
+  </artifact>
+</component>

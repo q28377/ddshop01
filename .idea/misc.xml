@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/dd-item-web" />
     <file type="web" url="file://$PROJECT_DIR$/dd-manager/dd-manager-web" />
     <file type="web" url="file://$PROJECT_DIR$/dd-portal-web" />
     <file type="web" url="file://$PROJECT_DIR$/dd-search-web" />
+    <file type="web" url="file://$PROJECT_DIR$/dd-shop-item" />
+    <file type="web" url="file://$PROJECT_DIR$/dd-sso-web" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/dd-parent/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/dd-shop-item/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager">
